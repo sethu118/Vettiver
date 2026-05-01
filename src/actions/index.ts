@@ -28,6 +28,10 @@ export async function getBusinessBySlug(slug: string) {
 }
 
 // ── Company Profile ───────────────────────────────────────────
+export async function getAllCompanyProfiles() {
+  return await db.select().from(companyProfiles);
+}
+
 export async function getCompanyProfile(businessId: string) {
   return await db.select().from(companyProfiles)
     .where(eq(companyProfiles.businessId, businessId)).limit(1).then(r => r[0]);
@@ -91,6 +95,10 @@ export async function addContact(businessId: string, formData: FormData) {
 }
 
 // ── Inventory ─────────────────────────────────────────────────
+export async function getAllInventory() {
+  return await db.select().from(inventory);
+}
+
 export async function getInventory(businessId: string) {
   return await db.select().from(inventory).where(eq(inventory.businessId, businessId));
 }
@@ -107,6 +115,10 @@ export async function addInventory(businessId: string, formData: FormData) {
 }
 
 // ── Land Operations ───────────────────────────────────────────
+export async function getAllLandOperations() {
+  return await db.select().from(landOperations);
+}
+
 export async function getLandOperations(businessId: string) {
   return await db.select().from(landOperations).where(eq(landOperations.businessId, businessId));
 }
@@ -124,6 +136,10 @@ export async function addLandOperation(businessId: string, formData: FormData) {
 }
 
 // ── Transactions ──────────────────────────────────────────────
+export async function getAllTransactions() {
+  return await db.select().from(transactions).orderBy(desc(transactions.date));
+}
+
 export async function getTransactions(businessId: string) {
   return await db.select().from(transactions)
     .where(eq(transactions.businessId, businessId))

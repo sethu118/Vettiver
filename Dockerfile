@@ -9,7 +9,7 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies (including devDependencies for drizzle-kit)
 RUN npm ci
 
 # Copy the rest of the application code
@@ -26,5 +26,5 @@ ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# Start the application
-CMD ["npm", "run", "start"]
+# Push schema and start the application
+CMD ["sh", "-c", "npx drizzle-kit push --force && npm run start"]

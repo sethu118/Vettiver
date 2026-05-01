@@ -1,8 +1,8 @@
-import { getTransactions, addTransaction } from "@/actions";
+import { getAllTransactions } from "@/actions";
 import ExportButton from "./ExportButton";
 
 export default async function AccountingPage() {
-  const transactions = await getTransactions();
+  const transactions = await getAllTransactions();
 
   const totalIncome = transactions.filter(t => t.type === 'Income').reduce((acc, curr) => acc + curr.amount, 0);
   const totalExpense = transactions.filter(t => t.type === 'Expense').reduce((acc, curr) => acc + curr.amount, 0);
@@ -18,38 +18,7 @@ export default async function AccountingPage() {
         <ExportButton transactions={transactions} totalBalance={totalBalance} />
       </header>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem' }}>
-        {/* Transaction Form */}
-        <div className="glass-panel" style={{ padding: '1.5rem', height: 'fit-content' }}>
-          <h2 style={{ marginBottom: '1rem' }}>Record Entry</h2>
-          <form action={addTransaction} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <div className="form-group">
-              <label className="form-label">Type</label>
-              <select name="type" className="form-input" required>
-                <option value="Income">Income</option>
-                <option value="Expense">Expense</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label className="form-label">Amount (INR)</label>
-              <input type="number" step="0.01" name="amount" className="form-input" required />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Description</label>
-              <input type="text" name="description" className="form-input" placeholder="e.g. Sale of 50 bags" required />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Date</label>
-              <input type="date" name="date" className="form-input" defaultValue={new Date().toISOString().split('T')[0]} required />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Reference / Invoice #</label>
-              <input type="text" name="referenceId" className="form-input" />
-            </div>
-            <button type="submit" className="btn">Post Transaction</button>
-          </form>
-        </div>
-
+      <div>
         {/* Ledger */}
         <div className="glass-panel" style={{ padding: '1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>

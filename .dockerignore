@@ -4,3 +4,9 @@ npm-debug.log
 .git
 .env*.local
 README.md
+sqlite.db
+sqlite.db-shm
+sqlite.db-wal
+*.db
+*.db-shm
+*.db-wal

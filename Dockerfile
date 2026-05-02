@@ -27,4 +27,4 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
 # Push schema and start the application
-CMD ["sh", "-c", "npx drizzle-kit push --force && npm run start"]
+CMD ["sh", "-c", "if [ ! -s sqlite.db ]; then npx drizzle-kit push --force; fi && npm run start"]

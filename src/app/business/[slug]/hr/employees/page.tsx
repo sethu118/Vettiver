@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import EmployeeForm from '@/components/hr/EmployeeForm';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export default async function EmployeeMasterPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const biz = await getBusinessBySlug(slug);

@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import InvoiceForm from '@/components/accounting/InvoiceForm';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export default async function PayablePage({
   params,
   searchParams,

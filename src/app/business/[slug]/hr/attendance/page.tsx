@@ -4,6 +4,8 @@ import AttendanceGrid from '@/components/hr/AttendanceGrid';
 import MonthPicker from '@/components/hr/MonthPicker';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AttendancePage({ 
   params, 
   searchParams 

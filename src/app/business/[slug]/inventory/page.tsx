@@ -1,6 +1,8 @@
 import { getBusinessBySlug, getInventory, getLandOperations, addInventory, addLandOperation } from '@/actions';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BusinessInventoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const biz = await getBusinessBySlug(slug);

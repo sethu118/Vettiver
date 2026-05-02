@@ -2,6 +2,8 @@ import { getBusinessBySlug, getTransactions, addTransaction } from '@/actions';
 import { notFound } from 'next/navigation';
 import LedgerTable from './LedgerTable';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BusinessAccountingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const biz = await getBusinessBySlug(slug);

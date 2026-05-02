@@ -2,6 +2,8 @@ import { getBusinessBySlug, getCompanyProfile, getStakeholders } from '@/actions
 import { notFound } from 'next/navigation';
 import { upsertCompanyProfile, addStakeholder } from '@/actions';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BusinessProfilePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const biz = await getBusinessBySlug(slug);

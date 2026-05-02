@@ -1,5 +1,7 @@
 import { getAllCompanyProfiles } from "@/actions";
 
+export const dynamic = 'force-dynamic';
+
 export default async function CompanyPage() {
   const profiles = await getAllCompanyProfiles();
 

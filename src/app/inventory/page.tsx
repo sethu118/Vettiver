@@ -1,6 +1,8 @@
 import { getAllInventory, getAllLandOperations } from "@/actions";
 import InventoryExportButton from "./ExportButton";
 
+export const dynamic = 'force-dynamic';
+
 export default async function InventoryPage() {
   const inventory = await getAllInventory();
   const landOps = await getAllLandOperations();

@@ -1,5 +1,7 @@
 import { getAllContacts } from '@/actions';
 
+export const dynamic = 'force-dynamic';
+
 export default async function GlobalContactsPage() {
   const allContacts = await getAllContacts();
 

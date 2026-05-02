@@ -6,6 +6,8 @@ import SalaryConfigPicker from '@/components/hr/SalaryConfigPicker';
 import Link from 'next/link';
 import { revalidatePath } from 'next/cache';
 
+export const dynamic = 'force-dynamic';
+
 export default async function PayrollPage({ 
   params, 
   searchParams 

@@ -1,6 +1,8 @@
 import { getAllTransactions } from "@/actions";
 import ExportButton from "./ExportButton";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AccountingPage() {
   const transactions = await getAllTransactions();
 

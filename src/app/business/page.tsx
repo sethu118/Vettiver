@@ -1,6 +1,8 @@
 import { getBusinesses } from '@/actions';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BusinessIndexPage() {
   const bizList = await getBusinesses();
 
